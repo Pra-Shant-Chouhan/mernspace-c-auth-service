@@ -1,5 +1,9 @@
-function welcome(name: string): string {
-  return `Welcome ${name} to the MERN Stack Authentication Service!`;
+function welcome(name: string) {
+  const user = {
+    name: name,
+    role: "User",
+  };
+  // console.log(user[name])
 }
 
 welcome("Prashant");
