@@ -1,0 +1,20 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "The User management service",
+  "homepage": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service#readme",
+  "bugs": {
+    "url": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service.git"
+  },
+  "license": "ISC",
+  "author": "Prashant Chouhan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
