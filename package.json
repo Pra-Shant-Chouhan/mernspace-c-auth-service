@@ -12,7 +12,7 @@
     },
     "license": "ISC",
     "author": "Prashant Chouhan",
-    "type": "commonjs",
+    "type": "module",
     "main": "index.js",
     "scripts": {
         "dev": "node src/server.js",
@@ -38,5 +38,8 @@
             "npm run format:fix",
             "npm run lint:fix"
         ]
+    },
+    "dependencies": {
+        "dotenv": "^18.0.10"
     }
 }
