@@ -1,42 +1,42 @@
 {
-  "name": "auth-service",
-  "version": "1.0.0",
-  "description": "The User management service",
-  "homepage": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service#readme",
-  "bugs": {
-    "url": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service.git"
-  },
-  "license": "ISC",
-  "author": "Prashant Chouhan",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node src/server.js",
-    "format:fix": "prettier . --write",
-    "format:check": "prettier . --check",
-    "lint:check": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/node": "^26.6.6",
-    "eslint": "^10.14.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
-    "prettier": "3.9.10",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1"
-  },
-   "lint-staged": {
-    "*.ts": [
-      "npm run format:fix",
-      "npm run lint:fix"
-    ]
-  }
+    "name": "auth-service",
+    "version": "1.0.0",
+    "description": "The User management service",
+    "homepage": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service#readme",
+    "bugs": {
+        "url": "https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Pra-Shant-Chouhan/mernspace-c-auth-service.git"
+    },
+    "license": "ISC",
+    "author": "Prashant Chouhan",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node src/server.js",
+        "format:fix": "prettier . --write",
+        "format:check": "prettier . --check",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/node": "^26.6.6",
+        "eslint": "^10.14.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.6.0",
+        "prettier": "3.9.10",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.72.1"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "npm run format:fix",
+            "npm run lint:fix"
+        ]
+    }
 }
