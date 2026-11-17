@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 //     // next(err)
 //     // res.send('Welcome to Auth Service!')
 // })
- 
+
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
     logger.error(err.message)
     const statusCode = err.statusCode || 500
