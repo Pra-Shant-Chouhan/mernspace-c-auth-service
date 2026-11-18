@@ -2,7 +2,7 @@ import { createDefaultPreset } from 'ts-jest'
 
 const tsJestTransformCfg = createDefaultPreset({
     tsconfig: {
-        module: 'CommonJS',
+        module: 'module',
         verbatimModuleSyntax: false,
     },
 }).transform
@@ -10,6 +10,7 @@ const tsJestTransformCfg = createDefaultPreset({
 /** @type {import("jest").Config} **/
 export default {
     testEnvironment: 'node',
+    verbose: true,
     transform: {
         ...tsJestTransformCfg,
     },

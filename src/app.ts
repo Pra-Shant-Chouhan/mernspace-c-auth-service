@@ -6,8 +6,12 @@ import express, {
 import type { HttpError } from 'http-errors'
 import logger from './config/logger.ts'
 // import createHttpError from 'http-errors'
+import authRouter from './routes/auth.ts'
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use('/auth', authRouter)
 
 app.get('/', (req, res) => {
     res.send('Welcome to Auth Service!')

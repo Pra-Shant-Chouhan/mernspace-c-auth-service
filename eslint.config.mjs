@@ -9,6 +9,7 @@ export default defineConfig(
         // config with just ignores is the replacement for `.eslintignore`
         ignores: [
             '**/build/**',
+            '**/coverage/**',
             '**/dist/**',
             'src/some/file/to/ignore.ts',
             'jest.config.js',
@@ -24,7 +25,10 @@ export default defineConfig(
         languageOptions: {
             parserOptions: {
                 projectService: {
-                    allowDefaultProject: ['app.spec.ts'],
+                    allowDefaultProject: [
+                        'app.spec.ts',
+                        'tests/users/register.spec.ts',
+                    ],
                 },
             },
         },

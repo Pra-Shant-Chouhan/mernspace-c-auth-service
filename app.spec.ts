@@ -1,6 +1,6 @@
+import request from 'supertest'
 import { describe, expect, it } from '@jest/globals'
 import { calculateDiscountedPrice } from './src/utils.ts'
-import request from 'supertest'
 import app from './src/app.ts'
 
 describe('App', () => {
