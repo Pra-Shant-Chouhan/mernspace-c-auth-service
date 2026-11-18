@@ -15,7 +15,7 @@
     "type": "module",
     "main": "dist/server.js",
     "scripts": {
-        "dev": "node --watch --env-file=.env src/server.ts",
+        "dev": "nodemon src/server.ts",
         "build": "tsc",
         "start": "node dist/server.js",
         "format:fix": "prettier . --write",
@@ -51,6 +51,7 @@
         ]
     },
     "dependencies": {
+        "dotenv": "^18.0.10",
         "express": "^5.3.0",
         "http-errors": "^2.0.1",
         "winston": "^3.19.0"
