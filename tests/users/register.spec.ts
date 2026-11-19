@@ -40,6 +40,22 @@ describe('POST /auth/register', () => {
                 expect.stringContaining('json'),
             )
         })
+        it('should persist the user in the database', async () => {
+            //AAA
+
+            //Arrange
+            const userData = {
+                firstName: 'Prashant',
+                lastName: 'Chouhan',
+                email: 'pch@gmail.com',
+                password: 'Secret',
+            }
+            //Act
+            const response = await request(app)
+                .post('/auth/register')
+                .send(userData)
+            //Assert
+        })
     })
     describe('fields are missing', () => {})
 })

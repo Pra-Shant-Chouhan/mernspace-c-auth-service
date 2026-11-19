@@ -41,7 +41,9 @@
         "moduleDetection": "force",
         "skipLibCheck": true,
         "allowImportingTsExtensions": true,
-        "noEmit": true
+        "noEmit": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     },
     "include": ["src/**/*.ts"]
 }
