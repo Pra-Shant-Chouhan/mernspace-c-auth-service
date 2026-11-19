@@ -1,8 +1,9 @@
-import { createDefaultPreset } from 'ts-jest'
+import { createDefaultEsmPreset } from 'ts-jest'
 
-const tsJestTransformCfg = createDefaultPreset({
+const tsJestTransformCfg = createDefaultEsmPreset({
     tsconfig: {
-        module: 'module',
+        module: 'nodenext',
+        esModuleInterop: true,
         verbatimModuleSyntax: false,
     },
 }).transform
@@ -11,6 +12,7 @@ const tsJestTransformCfg = createDefaultPreset({
 export default {
     testEnvironment: 'node',
     verbose: true,
+    extensionsToTreatAsEsm: ['.ts'],
     transform: {
         ...tsJestTransformCfg,
     },

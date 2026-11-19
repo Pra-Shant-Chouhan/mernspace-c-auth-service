@@ -22,7 +22,7 @@
         "format:check": "prettier . --check",
         "lint:check": "eslint .",
         "lint:fix": "eslint . --fix",
-        "test": "jest --watch --runInBand",
+        "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --runInBand",
         "prepare": "husky",
         "typeorm": "typeorm-ts-node-commonjs"
     },
