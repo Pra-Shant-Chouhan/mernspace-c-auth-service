@@ -28,6 +28,7 @@ export default defineConfig(
                     allowDefaultProject: [
                         'app.spec.ts',
                         'tests/users/register.spec.ts',
+                        'tests/utils/index.ts',
                     ],
                 },
             },
