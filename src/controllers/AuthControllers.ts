@@ -1,29 +1,21 @@
 import type { Request, Response } from 'express'
 import { AppDataSource } from '../config/data-source.ts'
+import type { RegisterUserRequest } from '../types/index.ts'
+import { UserService } from '../services/UserService.ts'
 
-interface UserData {
-    firstName: string
-    lastName: string
-    email: string
-    password: string
-}
-interface RegisterUserRequest extends Request {
-    body: UserData
-}
 export class AuthController {
+    userService: UserService
+    constructor(userService: UserService) {
+        this.userService = userService
+    }
     async register(req: RegisterUserRequest, res: Response) {
         const { firstName, lastName, email, password } = req.body
 
-        const userRepository = AppDataSource.getRepository('User')
-        await userRepository.save({
-            firstName,
-            lastName,
-            email,
-            password,
-        })
+        await this.userService.create({ firstName, lastName, email, password })
+
         res.status(201).json({
             message: 'User registered successfully',
-            // user: req.body,
+            user: req.body,
         })
     }
 }

@@ -3,6 +3,7 @@ import { createDefaultEsmPreset } from 'ts-jest'
 const tsJestTransformCfg = createDefaultEsmPreset({
     tsconfig: {
         module: 'nodenext',
+        moduleResolution: 'nodenext',
         esModuleInterop: true,
         verbatimModuleSyntax: false,
     },

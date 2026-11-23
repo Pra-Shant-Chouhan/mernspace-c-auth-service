@@ -25,7 +25,9 @@ describe('POST /auth/register', () => {
     })
 
     afterAll(async () => {
-        await connection.destroy()
+        if (connection?.isInitialized) {
+            await connection.destroy()
+        }
     })
     describe('Given all fields', () => {
         it('Should return the 201 status code.', async () => {
@@ -91,6 +93,7 @@ describe('POST /auth/register', () => {
             // })
             // expect(user).not.toBeNull()
         })
+        it.todo('it should return user id')
     })
     describe('fields are missing', () => {})
 })

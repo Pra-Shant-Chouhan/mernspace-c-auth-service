@@ -2,6 +2,7 @@ import { config } from 'dotenv'
 import { fileURLToPath } from 'node:url'
 
 config({
+    quiet: true,
     path: fileURLToPath(
         new URL(`../../.env.${process.env.NODE_ENV}`, import.meta.url),
     ),

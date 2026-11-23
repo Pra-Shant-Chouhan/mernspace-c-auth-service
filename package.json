@@ -15,14 +15,14 @@
     "type": "module",
     "main": "dist/server.js",
     "scripts": {
-        "dev": "cross-env NODE_ENV=dev nodemon src/server.ts",
+        "dev": "cross-env NODE_ENV=dev nodemon --exec \"node --disable-warning=DeprecationWarning --import ./register-ts-node.mjs\" src/server.ts",
         "build": "tsc",
         "start": "ts-node src/index.ts",
         "format:fix": "prettier . --write",
         "format:check": "prettier . --check",
         "lint:check": "eslint .",
         "lint:fix": "eslint . --fix",
-        "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --runInBand",
+        "test": "cross-env NODE_OPTIONS=--experimental-vm-modules node --disable-warning=ExperimentalWarning node_modules/jest/bin/jest.js --runInBand",
         "prepare": "husky",
         "typeorm": "typeorm-ts-node-commonjs"
     },
