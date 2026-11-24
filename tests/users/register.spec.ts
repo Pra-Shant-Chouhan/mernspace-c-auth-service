@@ -14,7 +14,13 @@ import { truncateTables } from '../utils/index.ts'
 
 describe('POST /auth/register', () => {
     let connection: DataSource
-
+    //Arrange
+    const userData = {
+        firstName: 'Prashant',
+        lastName: 'Chouhan',
+        email: 'pch@gmail.com',
+        password: 'Secret',
+    }
     beforeAll(async () => {
         connection = await AppDataSource.initialize()
     })
@@ -33,13 +39,9 @@ describe('POST /auth/register', () => {
         it('Should return the 201 status code.', async () => {
             //AAA
 
-            //Arrange
-            const userData = {
-                firstName: 'Prashant',
-                lastName: 'Chouhan',
-                email: 'pch@gmail.com',
-                password: 'Secret',
-            }
+            // Arrange
+            // userData is defined at describe level
+
             //Act
             const response = await request(app)
                 .post('/auth/register')
@@ -50,13 +52,9 @@ describe('POST /auth/register', () => {
         it('Should return JSON with user data', async () => {
             //AAA
 
-            //Arrange
-            const userData = {
-                firstName: 'Prashant',
-                lastName: 'Chouhan',
-                email: 'pch@gmail.com',
-                password: 'Secret',
-            }
+            // Arrange
+            // userData is defined at describe level
+
             //Act
             const response = await request(app)
                 .post('/auth/register')
@@ -69,18 +67,14 @@ describe('POST /auth/register', () => {
         it('should persist the user in the database', async () => {
             //AAA
 
-            //Arrange
-            const userData = {
-                firstName: 'Prashant',
-                lastName: 'Chouhan',
-                email: 'pch@gmail.com',
-                password: 'Secret',
-            }
-            //Act
+            //1.  Arrange
+            // userData is defined at describe level
+
+            //2. Act
             const response = await request(app)
                 .post('/auth/register')
                 .send(userData)
-            //Assert
+            //3. Assert
             const userRepository = connection.getRepository('User')
             const users = await userRepository.find()
             expect(users).toHaveLength(1)
