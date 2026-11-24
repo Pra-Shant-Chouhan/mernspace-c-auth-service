@@ -88,6 +88,20 @@ describe('POST /auth/register', () => {
             // expect(user).not.toBeNull()
         })
         it.todo('it should return user id')
+        it('should assign a customer role', async () => {
+            //AAA
+
+            // Arrange
+            // userData is defined at describe level
+
+            //Act
+            await request(app).post('/auth/register').send(userData)
+            //Assert
+            const userRepository = connection.getRepository('User')
+            const users = await userRepository.find()
+            expect(users).toHaveLength(1)
+            expect(users[0].role).toBe('customer')
+        })
     })
     describe('fields are missing', () => {})
 })

@@ -11,8 +11,8 @@ export const AppDataSource = new DataSource({
     password: Config.DB_PASSWORD ?? '',
     database: Config.DB_NAME ?? 'postgres',
     // don't forget to set the synchronize option to false in production
-    synchronize:
-        Config.NODE_ENV === 'test' || Config.NODE_ENV === 'dev' ? true : false,
+    synchronize: false,
+    // Config.NODE_ENV === 'test' || Config.NODE_ENV === 'dev' ? true : false,
     // to log all the queries run by TypeORM, set the logging option to true
     logging: false,
     entities: [User],
