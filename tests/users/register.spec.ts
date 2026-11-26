@@ -84,7 +84,7 @@ describe('POST /auth/register', () => {
             expect(users[0].email).toBe(userData.email)
             expect(users[0].firstName).toBe(userData.firstName)
             expect(users[0].lastName).toBe(userData.lastName)
-            expect(users[0].password).toBe(userData.password)
+            // expect(users[0].password).toBe(userData.password)
             // const user = await userRepository.findOneBy({
             //     email: userData.id,
             // })
@@ -105,6 +105,25 @@ describe('POST /auth/register', () => {
             expect(users).toHaveLength(1)
             expect(users[0]).toHaveProperty('role')
             expect(users[0].role).toBe('customer')
+        })
+        it('should store the hashed password in the database', async () => {
+            //1. Arrange
+            // userData is defined at describe level
+
+            //2.Act
+            const response = await request(app)
+                .post('/auth/register')
+                .send(userData)
+            //3. Assert
+
+            const userRepository = connection.getRepository('User')
+            const users = await userRepository.find()
+            expect(users).toHaveLength(1)
+            // console.log("Stored password:", users[0].password);
+            expect(users[0].password).not.toBe(userData.password) // Ensure the stored password is not the same as the plain text password
+            expect(users[0].password).toHaveLength(60) // Ensure that there is one user in the database
+            expect(users[0].password).toMatch(/^\$2[aby]\$.{56}$/) // Check if the stored password matches the bcrypt hash format
+            // Optionally, you can also check if the stored password matches a hashed version of the original password using a hashing library like bcrypt.
         })
     })
     describe('fields are missing', () => {})
