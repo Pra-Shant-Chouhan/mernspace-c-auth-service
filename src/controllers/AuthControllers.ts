@@ -23,6 +23,7 @@ export class AuthController {
                 lastName,
                 email,
                 password,
+                role: 'customer', // Set the role to 'customer' when creating a new user
             })
             this.logger.info(`User created with ID: ${user.id}`)
             res.status(201).json({

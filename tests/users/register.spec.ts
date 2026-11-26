@@ -10,7 +10,7 @@ import {
 import app from '../../src/app.ts'
 import { DataSource } from 'typeorm'
 import { AppDataSource } from '../../src/config/data-source.ts'
-import { truncateTables } from '../utils/index.ts'
+// import { truncateTables } from '../utils/index.ts'
 
 describe('POST /auth/register', () => {
     let connection: DataSource
@@ -20,14 +20,17 @@ describe('POST /auth/register', () => {
         lastName: 'Chouhan',
         email: 'pch@gmail.com',
         password: 'Secret',
+        role: 'customer',
     }
     beforeAll(async () => {
         connection = await AppDataSource.initialize()
     })
 
     beforeEach(async () => {
+        await connection.dropDatabase()
+        await connection.synchronize()
         //Database truncate
-        await truncateTables(connection)
+        // await truncateTables(connection)
     })
 
     afterAll(async () => {
@@ -100,7 +103,8 @@ describe('POST /auth/register', () => {
             const userRepository = connection.getRepository('User')
             const users = await userRepository.find()
             expect(users).toHaveLength(1)
-            expect(users[0].role).toBe('customer')
+            expect(users[0]).toHaveProperty('role')
+            expect(users[0].role).toBe('admin')
         })
     })
     describe('fields are missing', () => {})
