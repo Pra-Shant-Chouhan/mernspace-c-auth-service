@@ -2,6 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 import type { RegisterUserRequest } from '../types/index.ts'
 import { UserService } from '../services/UserService.ts'
 import type { Logger } from 'winston'
+import { Roles } from '../constants/index.ts'
 
 export class AuthController {
     constructor(
@@ -23,7 +24,7 @@ export class AuthController {
                 lastName,
                 email,
                 password,
-                role: 'customer', // Set the role to 'customer' when creating a new user
+                role: Roles.CUSTOMER, // Set the role to 'customer' when creating a new user
             })
             this.logger.info(`User created with ID: ${user.id}`)
             res.status(201).json({

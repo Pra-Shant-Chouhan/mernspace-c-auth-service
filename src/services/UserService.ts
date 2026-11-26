@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm'
 import type { UserData } from '../types/index.ts'
 import type { User } from '../entities/User.ts'
-import { Roles } from '../contants/index.ts'
+import { Roles } from '../constants/index.ts'
 
 export class UserService {
     constructor(private userRepository: Repository<User>) {}
