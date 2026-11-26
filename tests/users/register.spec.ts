@@ -104,7 +104,7 @@ describe('POST /auth/register', () => {
             const users = await userRepository.find()
             expect(users).toHaveLength(1)
             expect(users[0]).toHaveProperty('role')
-            expect(users[0].role).toBe('admin')
+            expect(users[0].role).toBe('customer')
         })
     })
     describe('fields are missing', () => {})
